@@ -1,0 +1,2014 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "cybersource",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/api/v1/aggregators/register": {
+      "post": {
+        "tags": [
+          "aggregators"
+        ],
+        "summary": "register aggregator",
+        "operationId": "registeraggregator",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/registeraggregatorrequest"
+              },
+              "example": {
+                "companyName": "The Company1.0",
+                "phoneNumber": "09065734215",
+                "businessYears": 9,
+                "email": "theemail14@email.com",
+                "websiteLink": "www.the-website.com",
+                "accountNumber": "0763239709",
+                "address": "No 2 Luke Skywall Street",
+                "primaryContactName": "The Primary Name",
+                "primaryContactTelephone": "08984347322",
+                "primaryContactPhoneNumber": "08033473333",
+                "primaryContactEmail": "theprimary@email.com",
+                "secondaryContactName": "The Secondary Name",
+                "secondaryContactTelephone": "08044334444",
+                "secondaryContactPhoneNumber": "08055544555",
+                "secondaryContactEmail": "thesecondary@email.com"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/aggregators/verify": {
+      "post": {
+        "tags": [
+          "aggregators"
+        ],
+        "summary": "verification and password creation",
+        "operationId": "verificationandpasswordcreation",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/verificationandpasswordcreationrequest"
+              },
+              "example": {
+                "email": "ext_aggregator_6@gmail.com",
+                "otp": "76276",
+                "password": "DR5SyK101ju24Xqe1w91wg2NYIMErrqW9bi7MuRhIH4=P3YFf/yhT5m+w3eZMjLxEw==6ZjF9gau62Ywlf4HeS43oQ==",
+                "digestId": "44"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/aggregators/resend_otp": {
+      "post": {
+        "tags": [
+          "aggregators"
+        ],
+        "summary": "resend otp",
+        "operationId": "resendotp",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/resendotprequest"
+              },
+              "example": {
+                "email": "ext_aggregator_6@gmail.com"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/aggregators/1": {
+      "get": {
+        "tags": [
+          "aggregators"
+        ],
+        "summary": "get by id",
+        "operationId": "getbyid",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ2dyZWdhdG9ySWQiOjEsImlzVmVyaWZpZWQiOnRydWUsInBlbmRpbmciOmZhbHNlLCJpc0FjdGl2ZSI6dHJ1ZSwicm9sZSI6ImFnZ3JlZ2F0b3IiLCJpYXQiOjE1OTIyODk0MzgsImV4cCI6MTU5MjM3NTgzOH0.pRkpR1oduQOEgWFOm3wcE-gHj3MSFpYXL7_9XVo7tSU"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/aggregators/login": {
+      "post": {
+        "tags": [
+          "aggregators"
+        ],
+        "summary": "login aggregator",
+        "operationId": "loginaggregator",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ2dyZWdhdG9ySWQiOjEsInJvbGUiOiJhZ2dyZWdhdG9yIiwiaWF0IjoxNTkxNjk1NjY1LCJleHAiOjE1OTE3ODIwNjV9.bpHDsdLfCvgJ7rNU5JjZwqMviO1EEkniVACav9i6ZaY"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/loginaggregatorrequest"
+              },
+              "example": {
+                "email": "socialpay@gmail.com",
+                "password": "DR5SyK101ju24Xqe1w91wg2NYIMErrqW9bi7MuRhIH4=P3YFf/yhT5m+w3eZMjLxEw==6ZjF9gau62Ywlf4HeS43oQ==",
+                "digestId": "44"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/aggregators": {
+      "get": {
+        "tags": [
+          "aggregators"
+        ],
+        "summary": "all aggregators -- admin only",
+        "operationId": "allaggregators--adminonly",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVuZWphayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTU5MjI0MzUxMSwiZXhwIjoxNTkyMzI5OTExfQ.agOPr2zS06o8ndCtegfOdOW00FFe5ReIN8WmFobJAtE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/aggregators/1/approve": {
+      "patch": {
+        "tags": [
+          "aggregators"
+        ],
+        "summary": "approve aggregator",
+        "operationId": "approveaggregator",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVuZWphayIsInJvbGUiOiJhZG1pbiIsImlzVmVyaWZpZWQiOnRydWUsImlzQWN0aXZlIjp0cnVlLCJwZW5kaW5nIjpmYWxzZSwiaWF0IjoxNTkyMjg4NzAxLCJleHAiOjE1OTIzNzUxMDF9.evPBJKXP8cI9TY6dHshEWEZnNUhwCJfQ9X3XkpZsEco"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/aggregators/1/transactions": {
+      "get": {
+        "tags": [
+          "aggregators"
+        ],
+        "summary": "aggrator transactions -- accessible to the aggregator and admin",
+        "operationId": "aggratortransactions--accessibletotheaggregatorandadmin",
+        "parameters": [
+          {
+            "name": "transactionId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 0
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 6
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "2020-06-01"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "2020-06-15"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ2dyZWdhdG9ySWQiOjEsInJvbGUiOiJhZ2dyZWdhdG9yIiwiaWF0IjoxNTkyMjk1MTAzLCJleHAiOjE1OTIzODE1MDN9.TFtuH5v2ElZ2AMmlpE8dCh4JcPHLgaQ1ZPHnOiGSGa4"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/aggregators/1/merchants": {
+      "get": {
+        "tags": [
+          "aggregators"
+        ],
+        "summary": "aggregator merchants -- allows owner and admin",
+        "operationId": "aggregatormerchants--allowsownerandadmin",
+        "parameters": [
+          {
+            "name": "accountNumber",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 0
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ2dyZWdhdG9ySWQiOjEsInJvbGUiOiJhZ2dyZWdhdG9yIiwiaWF0IjoxNTkxODAyNDc5LCJleHAiOjE1OTE4ODg4Nzl9.pNBNRl6QqlH_kqKwG5tb6qnb8DhTAGIsxojxIr5C3Jw"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/aggregators/1/transactions/stats": {
+      "get": {
+        "tags": [
+          "aggregators"
+        ],
+        "summary": "Stats for aggregator transactions",
+        "operationId": "Statsforaggregatortransactions",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ2dyZWdhdG9ySWQiOjEsInJvbGUiOiJhZ2dyZWdhdG9yIiwiaWF0IjoxNTkxODAyNDc5LCJleHAiOjE1OTE4ODg4Nzl9.pNBNRl6QqlH_kqKwG5tb6qnb8DhTAGIsxojxIr5C3Jw"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/aggregators/pending": {
+      "get": {
+        "tags": [
+          "aggregators"
+        ],
+        "summary": "pending aggregators -- admin only",
+        "operationId": "pendingaggregators--adminonly",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVuZWphayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTU5MjI0MzUxMSwiZXhwIjoxNTkyMzI5OTExfQ.agOPr2zS06o8ndCtegfOdOW00FFe5ReIN8WmFobJAtE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/aggregators/1/activate": {
+      "patch": {
+        "tags": [
+          "aggregators"
+        ],
+        "summary": "activate aggregator -- allows admin only",
+        "operationId": "activateaggregator--allowsadminonly",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVuZWphayIsInJvbGUiOiJhZG1pbiIsImlzVmVyaWZpZWQiOnRydWUsImlzQWN0aXZlIjp0cnVlLCJwZW5kaW5nIjpmYWxzZSwiaWF0IjoxNTkyMjg4NzAxLCJleHAiOjE1OTIzNzUxMDF9.evPBJKXP8cI9TY6dHshEWEZnNUhwCJfQ9X3XkpZsEco"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/aggregators/1/deactivate": {
+      "patch": {
+        "tags": [
+          "aggregators"
+        ],
+        "summary": "deactivate aggregator -- allows admin only",
+        "operationId": "deactivateaggregator--allowsadminonly",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVuZWphayIsInJvbGUiOiJhZG1pbiIsImlzVmVyaWZpZWQiOnRydWUsImlzQWN0aXZlIjp0cnVlLCJwZW5kaW5nIjpmYWxzZSwiaWF0IjoxNTkyMjg4NzAxLCJleHAiOjE1OTIzNzUxMDF9.evPBJKXP8cI9TY6dHshEWEZnNUhwCJfQ9X3XkpZsEco"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/aggregators/1/basic_info": {
+      "get": {
+        "tags": [
+          "aggregators"
+        ],
+        "summary": "aggregator profile",
+        "operationId": "aggregatorprofile",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/aggregators/change_password": {
+      "post": {
+        "tags": [
+          "aggregators"
+        ],
+        "summary": "change aggregator password -- cannot use the previous 10 passwords",
+        "operationId": "changeaggregatorpassword--cannotusetheprevious10passwords",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/changeaggregatorpassword--cannotusetheprevious10passwordsrequest"
+              },
+              "example": {
+                "otp": "282982",
+                "password": "DR5SyK101ju24Xqe1w91wg2NYIMErrqW9bi7MuRhIH4=P3YFf/yhT5m+w3eZMjLxEw==6ZjF9gau62Ywlf4HeS43oQ==",
+                "digestId": "44"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/aggregators/reset_password": {
+      "post": {
+        "tags": [
+          "aggregators"
+        ],
+        "summary": "reset aggregator password",
+        "operationId": "resetaggregatorpassword",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/resetaggregatorpasswordrequest"
+              },
+              "example": {
+                "email": "valid_aggregator_email"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/merchants/register": {
+      "post": {
+        "tags": [
+          "merchants"
+        ],
+        "summary": "register merchant",
+        "operationId": "registermerchant",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/registermerchantrequest"
+              },
+              "example": {
+                "bankType": "accessBank",
+                "agid": "ACCESSNG0000002",
+                "companyName": "merchant 8",
+                "phoneNumber": "09065734222",
+                "email": "merchant_80@email.com",
+                "accountNumber": "0875314409",
+                "bvn": "2635637431",
+                "businessYears": 9,
+                "websiteLink": "www.the-website.com",
+                "address": "No 2 Luke Skywall Street",
+                "primaryContactName": "The Primary Name",
+                "primaryContactTelephone": "08984347322",
+                "primaryContactPhoneNumber": "08033473333",
+                "primaryContactEmail": "theprimary@email.com",
+                "secondaryContactName": "The Secondary Name",
+                "secondaryContactTelephone": "08044334444",
+                "secondaryContactPhoneNumber": "08055544555",
+                "secondaryContactEmail": "thesecondary@email.com"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/merchants/verify": {
+      "post": {
+        "tags": [
+          "merchants"
+        ],
+        "summary": "verify merchant and create password",
+        "operationId": "verifymerchantandcreatepassword",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/verifymerchantandcreatepasswordrequest"
+              },
+              "example": {
+                "email": "merchant_80@email.com",
+                "otp": "23025",
+                "password": "DR5SyK101ju24Xqe1w91wg2NYIMErrqW9bi7MuRhIH4=P3YFf/yhT5m+w3eZMjLxEw==6ZjF9gau62Ywlf4HeS43oQ==",
+                "digestId": "44"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/merchants/resend_otp": {
+      "post": {
+        "tags": [
+          "merchants"
+        ],
+        "summary": "resend otp",
+        "operationId": "Postresendotp",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/resendotprequest"
+              },
+              "example": {
+                "email": "merchant_80@email.com"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/merchants/login": {
+      "post": {
+        "tags": [
+          "merchants"
+        ],
+        "summary": "login merchant",
+        "operationId": "loginmerchant",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/loginmerchantrequest"
+              },
+              "example": {
+                "email": "merchant_1@email.com",
+                "password": "DR5SyK101ju24Xqe1w91wg2NYIMErrqW9bi7MuRhIH4=P3YFf/yhT5m+w3eZMjLxEw==6ZjF9gau62Ywlf4HeS43oQ==",
+                "digestId": "44"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/merchants/1": {
+      "get": {
+        "tags": [
+          "merchants"
+        ],
+        "summary": "get by id",
+        "operationId": "Getgetbyid",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXJjaGFudElkIjoxLCJpc1ZlcmlmaWVkIjp0cnVlLCJwZW5kaW5nIjpmYWxzZSwiaXNBY3RpdmUiOnRydWUsInJvbGUiOiJtZXJjaGFudCIsImlhdCI6MTU5MjI5MTQ5MSwiZXhwIjoxNTkyMzc3ODkxfQ.qg1AkTk-FE_5Pvkx4ZkJzwMr-K6KorfpuJNj_bbYF3s"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/merchants": {
+      "get": {
+        "tags": [
+          "merchants"
+        ],
+        "summary": "all merchants -- admin only",
+        "operationId": "allmerchants--adminonly",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 3
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVuZWphayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTU5MTkxMzA2MCwiZXhwIjoxNTkxOTk5NDYwfQ.vo56uhyA-8DOJJ128TIHy51z-LzJmlnZtnzni_cKpm4"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/merchants/1/transactions": {
+      "get": {
+        "tags": [
+          "merchants"
+        ],
+        "summary": "merchant transactions -- allows merchant n, merchant n's aggregator and admin",
+        "operationId": "merchanttransactions--allowsmerchantn,merchantn'saggregatorandadmin",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "PENDING"
+            }
+          },
+          {
+            "name": "transactionId",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 3
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 0
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "2020-06-01"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "2020-06-12"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXJjaGFudElkIjoxLCJyb2xlIjoibWVyY2hhbnQiLCJpYXQiOjE1OTE3ODI1NTcsImV4cCI6MTU5MTg2ODk1N30.j7OsNdpunWM4aoBXj69kJazMXtOIThiLTJVtIgpbgzA"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/merchants/1/transactions/stats": {
+      "get": {
+        "tags": [
+          "merchants"
+        ],
+        "summary": "transaction stats for merchant X -- alows X and his aggregator and admin",
+        "operationId": "transactionstatsformerchantX--alowsXandhisaggregatorandadmin",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ2dyZWdhdG9ySWQiOjEsInJvbGUiOiJhZ2dyZWdhdG9yIiwiaWF0IjoxNTkxODAyNDc5LCJleHAiOjE1OTE4ODg4Nzl9.pNBNRl6QqlH_kqKwG5tb6qnb8DhTAGIsxojxIr5C3Jw"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/merchants/1/activate": {
+      "patch": {
+        "tags": [
+          "merchants"
+        ],
+        "summary": "activate merchant -- allows aggregator that owns merchant",
+        "operationId": "activatemerchant--allowsaggregatorthatownsmerchant",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ2dyZWdhdG9ySWQiOjEsInJvbGUiOiJhZ2dyZWdhdG9yIiwiaWF0IjoxNTkyMjk2NjI4LCJleHAiOjE1OTIzODMwMjh9.s1LUkFqtIFbsLhncT31ut-CJPzyMUiYg6NsIjtD19Mg"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/merchants/1/deactivate": {
+      "patch": {
+        "tags": [
+          "merchants"
+        ],
+        "summary": "deactivate merchant -- allows aggregator that owns merchant",
+        "operationId": "deactivatemerchant--allowsaggregatorthatownsmerchant",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/merchants/8/approve": {
+      "patch": {
+        "tags": [
+          "merchants"
+        ],
+        "summary": "approve merchant -- admin only",
+        "operationId": "approvemerchant--adminonly",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVuZWphayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTU5MjM3OTIyOCwiZXhwIjoxNTkyNDY1NjI4fQ.UkpPJLwQ9ywoTAiywaRvmSH20n5PdDRZF_u620Ss3pw"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/approvemerchant--adminonlyrequest"
+              },
+              "example": {
+                "riskLevel": "medium"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/merchants/pending": {
+      "get": {
+        "tags": [
+          "merchants"
+        ],
+        "summary": "pending merchants -- admin only",
+        "operationId": "pendingmerchants--adminonly",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVuZWphayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTU5MjI0MzUxMSwiZXhwIjoxNTkyMzI5OTExfQ.agOPr2zS06o8ndCtegfOdOW00FFe5ReIN8WmFobJAtE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/merchants/8/risk_level": {
+      "patch": {
+        "tags": [
+          "merchants"
+        ],
+        "summary": "change merchant risk-level -- admin only",
+        "operationId": "changemerchantrisk-level--adminonly",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVuZWphayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTU5MjM3OTIyOCwiZXhwIjoxNTkyNDY1NjI4fQ.UkpPJLwQ9ywoTAiywaRvmSH20n5PdDRZF_u620Ss3pw"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/changemerchantrisk-level--adminonlyrequest"
+              },
+              "example": {
+                "riskLevel": "medium"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/merchants/change_password": {
+      "post": {
+        "tags": [
+          "merchants"
+        ],
+        "summary": "change merchant password -- cannot use the previous 10 passwords",
+        "operationId": "changemerchantpassword--cannotusetheprevious10passwords",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/changemerchantpassword--cannotusetheprevious10passwordsrequest"
+              },
+              "example": {
+                "otp": "282982",
+                "password": "DR5SyK101ju24Xqe1w91wg2NYIMErrqW9bi7MuRhIH4=P3YFf/yhT5m+w3eZMjLxEw==6ZjF9gau62Ywlf4HeS43oQ==",
+                "digestId": "44"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/merchants/reset_password": {
+      "post": {
+        "tags": [
+          "merchants"
+        ],
+        "summary": "reset merchant password",
+        "operationId": "resetmerchantpassword",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/resetmerchantpasswordrequest"
+              },
+              "example": {
+                "email": "valid_merchant_email"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/transactions": {
+      "get": {
+        "tags": [
+          "transactions"
+        ],
+        "summary": "all transactions -- admin only",
+        "operationId": "alltransactions--adminonly",
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "2020-06-12"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "2020-06-13"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVuZWphayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTU5MjI0MzUxMSwiZXhwIjoxNTkyMzI5OTExfQ.agOPr2zS06o8ndCtegfOdOW00FFe5ReIN8WmFobJAtE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/transactions/count": {
+      "get": {
+        "tags": [
+          "transactions"
+        ],
+        "summary": "total count  -- group by status or by month -- admin only",
+        "operationId": "totalcount--groupbystatusorbymonth--adminonly",
+        "parameters": [
+          {
+            "name": "groupby",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "example": "status"
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVuZWphayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTU5MTg0OTMwMSwiZXhwIjoxNTkxOTM1NzAxfQ.B5jUvhLwGB3rOc4X_tJch2lq1Lah6T-LU1pdFUiBR8Y"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/transactions/by_external_aggregators": {
+      "get": {
+        "tags": [
+          "transactions"
+        ],
+        "summary": "transactions for all aggregators -- EXCEPT socialpay and direct-merchant aggregtors -- admin only",
+        "operationId": "transactionsforallaggregators--EXCEPTsocialpayanddirect-merchantaggregtors--adminonly",
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 0
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "example": 2
+            }
+          },
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVuZWphayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTU5MTkxMzA2MCwiZXhwIjoxNTkxOTk5NDYwfQ.vo56uhyA-8DOJJ128TIHy51z-LzJmlnZtnzni_cKpm4"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/transactions/stats/by_external_aggregators": {
+      "get": {
+        "tags": [
+          "transactions"
+        ],
+        "summary": "transaction stats for external aggregators -- admin only",
+        "operationId": "transactionstatsforexternalaggregators--adminonly",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVuZWphayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTU5MTkxMzA2MCwiZXhwIjoxNTkxOTk5NDYwfQ.vo56uhyA-8DOJJ128TIHy51z-LzJmlnZtnzni_cKpm4"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/admin/login": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "login admin",
+        "operationId": "loginadmin",
+        "parameters": [],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/loginadminrequest"
+              },
+              "example": {
+                "username": "valid_username",
+                "password": "DR5SyK101ju24Xqe1w91wg2NYIMErrqW9bi7MuRhIH4=P3YFf/yhT5m+w3eZMjLxEw==6ZjF9gau62Ywlf4HeS43oQ==",
+                "digestId": "44"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/api/v1/admin/dashboard": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "admin dashboard data",
+        "operationId": "admindashboarddata",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVuZWphayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTU5MTg0OTMwMSwiZXhwIjoxNTkxOTM1NzAxfQ.B5jUvhLwGB3rOc4X_tJch2lq1Lah6T-LU1pdFUiBR8Y"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/admin/count/pending/users": {
+      "get": {
+        "tags": [
+          "admin"
+        ],
+        "summary": "get total pending -- allows admin only",
+        "operationId": "gettotalpending--allowsadminonly",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImVuZWphayIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTU5MjI0MzUxMSwiZXhwIjoxNTkyMzI5OTExfQ.agOPr2zS06o8ndCtegfOdOW00FFe5ReIN8WmFobJAtE"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api/v1/auth/profile": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "user profile",
+        "operationId": "userprofile",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "string",
+              "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ2dyZWdhdG9ySWQiOjMsInJvbGUiOiJhZ2dyZWdhdG9yIiwiaWF0IjoxNTkxODkxMDIxLCJleHAiOjE1OTE5Nzc0MjF9.UmdsMxs6EShBzmJrQzBhF1zcPcDlwdArTMoi9zF2GgM"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false,
+        "security": []
+      }
+    },
+    "/api-docs": {
+      "get": {
+        "tags": [
+          "documentation"
+        ],
+        "summary": "swagger docs",
+        "operationId": "swaggerdocs",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "registeraggregatorrequest": {
+        "title": "registeraggregatorrequest",
+        "required": [
+          "companyName",
+          "phoneNumber",
+          "businessYears",
+          "email",
+          "websiteLink",
+          "accountNumber",
+          "address",
+          "primaryContactName",
+          "primaryContactTelephone",
+          "primaryContactPhoneNumber",
+          "primaryContactEmail",
+          "secondaryContactName",
+          "secondaryContactTelephone",
+          "secondaryContactPhoneNumber",
+          "secondaryContactEmail"
+        ],
+        "type": "object",
+        "properties": {
+          "companyName": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "businessYears": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "email": {
+            "type": "string"
+          },
+          "websiteLink": {
+            "type": "string"
+          },
+          "accountNumber": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "primaryContactName": {
+            "type": "string"
+          },
+          "primaryContactTelephone": {
+            "type": "string"
+          },
+          "primaryContactPhoneNumber": {
+            "type": "string"
+          },
+          "primaryContactEmail": {
+            "type": "string"
+          },
+          "secondaryContactName": {
+            "type": "string"
+          },
+          "secondaryContactTelephone": {
+            "type": "string"
+          },
+          "secondaryContactPhoneNumber": {
+            "type": "string"
+          },
+          "secondaryContactEmail": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "companyName": "The Company1.0",
+          "phoneNumber": "09065734215",
+          "businessYears": 9,
+          "email": "theemail14@email.com",
+          "websiteLink": "www.the-website.com",
+          "accountNumber": "0763239709",
+          "address": "No 2 Luke Skywall Street",
+          "primaryContactName": "The Primary Name",
+          "primaryContactTelephone": "08984347322",
+          "primaryContactPhoneNumber": "08033473333",
+          "primaryContactEmail": "theprimary@email.com",
+          "secondaryContactName": "The Secondary Name",
+          "secondaryContactTelephone": "08044334444",
+          "secondaryContactPhoneNumber": "08055544555",
+          "secondaryContactEmail": "thesecondary@email.com"
+        }
+      },
+      "verificationandpasswordcreationrequest": {
+        "title": "verificationandpasswordcreationrequest",
+        "required": [
+          "email",
+          "otp",
+          "password",
+          "digestId"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "otp": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "digestId": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "ext_aggregator_6@gmail.com",
+          "otp": "76276",
+          "password": "DR5SyK101ju24Xqe1w91wg2NYIMErrqW9bi7MuRhIH4=P3YFf/yhT5m+w3eZMjLxEw==6ZjF9gau62Ywlf4HeS43oQ==",
+          "digestId": "44"
+        }
+      },
+      "resendotprequest": {
+        "title": "resendotprequest",
+        "required": [
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "ext_aggregator_6@gmail.com"
+        }
+      },
+      "loginaggregatorrequest": {
+        "title": "loginaggregatorrequest",
+        "required": [
+          "email",
+          "password",
+          "digestId"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "digestId": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "socialpay@gmail.com",
+          "password": "DR5SyK101ju24Xqe1w91wg2NYIMErrqW9bi7MuRhIH4=P3YFf/yhT5m+w3eZMjLxEw==6ZjF9gau62Ywlf4HeS43oQ==",
+          "digestId": "44"
+        }
+      },
+      "changeaggregatorpassword--cannotusetheprevious10passwordsrequest": {
+        "title": "changeaggregatorpassword--cannotusetheprevious10passwordsrequest",
+        "required": [
+          "otp",
+          "password",
+          "digestId"
+        ],
+        "type": "object",
+        "properties": {
+          "otp": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "digestId": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "otp": "282982",
+          "password": "DR5SyK101ju24Xqe1w91wg2NYIMErrqW9bi7MuRhIH4=P3YFf/yhT5m+w3eZMjLxEw==6ZjF9gau62Ywlf4HeS43oQ==",
+          "digestId": "44"
+        }
+      },
+      "resetaggregatorpasswordrequest": {
+        "title": "resetaggregatorpasswordrequest",
+        "required": [
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "valid_aggregator_email"
+        }
+      },
+      "registermerchantrequest": {
+        "title": "registermerchantrequest",
+        "required": [
+          "bankType",
+          "agid",
+          "companyName",
+          "phoneNumber",
+          "email",
+          "accountNumber",
+          "bvn",
+          "businessYears",
+          "websiteLink",
+          "address",
+          "primaryContactName",
+          "primaryContactTelephone",
+          "primaryContactPhoneNumber",
+          "primaryContactEmail",
+          "secondaryContactName",
+          "secondaryContactTelephone",
+          "secondaryContactPhoneNumber",
+          "secondaryContactEmail"
+        ],
+        "type": "object",
+        "properties": {
+          "bankType": {
+            "type": "string"
+          },
+          "agid": {
+            "type": "string"
+          },
+          "companyName": {
+            "type": "string"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "accountNumber": {
+            "type": "string"
+          },
+          "bvn": {
+            "type": "string"
+          },
+          "businessYears": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "websiteLink": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string"
+          },
+          "primaryContactName": {
+            "type": "string"
+          },
+          "primaryContactTelephone": {
+            "type": "string"
+          },
+          "primaryContactPhoneNumber": {
+            "type": "string"
+          },
+          "primaryContactEmail": {
+            "type": "string"
+          },
+          "secondaryContactName": {
+            "type": "string"
+          },
+          "secondaryContactTelephone": {
+            "type": "string"
+          },
+          "secondaryContactPhoneNumber": {
+            "type": "string"
+          },
+          "secondaryContactEmail": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "bankType": "accessBank",
+          "agid": "ACCESSNG0000002",
+          "companyName": "merchant 8",
+          "phoneNumber": "09065734222",
+          "email": "merchant_80@email.com",
+          "accountNumber": "0875314409",
+          "bvn": "2635637431",
+          "businessYears": 9,
+          "websiteLink": "www.the-website.com",
+          "address": "No 2 Luke Skywall Street",
+          "primaryContactName": "The Primary Name",
+          "primaryContactTelephone": "08984347322",
+          "primaryContactPhoneNumber": "08033473333",
+          "primaryContactEmail": "theprimary@email.com",
+          "secondaryContactName": "The Secondary Name",
+          "secondaryContactTelephone": "08044334444",
+          "secondaryContactPhoneNumber": "08055544555",
+          "secondaryContactEmail": "thesecondary@email.com"
+        }
+      },
+      "verifymerchantandcreatepasswordrequest": {
+        "title": "verifymerchantandcreatepasswordrequest",
+        "required": [
+          "email",
+          "otp",
+          "password",
+          "digestId"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "otp": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "digestId": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "merchant_80@email.com",
+          "otp": "23025",
+          "password": "DR5SyK101ju24Xqe1w91wg2NYIMErrqW9bi7MuRhIH4=P3YFf/yhT5m+w3eZMjLxEw==6ZjF9gau62Ywlf4HeS43oQ==",
+          "digestId": "44"
+        }
+      },
+      "loginmerchantrequest": {
+        "title": "loginmerchantrequest",
+        "required": [
+          "email",
+          "password",
+          "digestId"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "digestId": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "merchant_1@email.com",
+          "password": "DR5SyK101ju24Xqe1w91wg2NYIMErrqW9bi7MuRhIH4=P3YFf/yhT5m+w3eZMjLxEw==6ZjF9gau62Ywlf4HeS43oQ==",
+          "digestId": "44"
+        }
+      },
+      "approvemerchant--adminonlyrequest": {
+        "title": "approvemerchant--adminonlyrequest",
+        "required": [
+          "riskLevel"
+        ],
+        "type": "object",
+        "properties": {
+          "riskLevel": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "riskLevel": "medium"
+        }
+      },
+      "changemerchantrisk-level--adminonlyrequest": {
+        "title": "changemerchantrisk-level--adminonlyrequest",
+        "required": [
+          "riskLevel"
+        ],
+        "type": "object",
+        "properties": {
+          "riskLevel": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "riskLevel": "medium"
+        }
+      },
+      "changemerchantpassword--cannotusetheprevious10passwordsrequest": {
+        "title": "changemerchantpassword--cannotusetheprevious10passwordsrequest",
+        "required": [
+          "otp",
+          "password",
+          "digestId"
+        ],
+        "type": "object",
+        "properties": {
+          "otp": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "digestId": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "otp": "282982",
+          "password": "DR5SyK101ju24Xqe1w91wg2NYIMErrqW9bi7MuRhIH4=P3YFf/yhT5m+w3eZMjLxEw==6ZjF9gau62Ywlf4HeS43oQ==",
+          "digestId": "44"
+        }
+      },
+      "resetmerchantpasswordrequest": {
+        "title": "resetmerchantpasswordrequest",
+        "required": [
+          "email"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "email": "valid_merchant_email"
+        }
+      },
+      "loginadminrequest": {
+        "title": "loginadminrequest",
+        "required": [
+          "username",
+          "password",
+          "digestId"
+        ],
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "digestId": {
+            "type": "string"
+          }
+        },
+        "example": {
+          "username": "valid_username",
+          "password": "DR5SyK101ju24Xqe1w91wg2NYIMErrqW9bi7MuRhIH4=P3YFf/yhT5m+w3eZMjLxEw==6ZjF9gau62Ywlf4HeS43oQ==",
+          "digestId": "44"
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "aggregators"
+    },
+    {
+      "name": "merchants"
+    },
+    {
+      "name": "transactions"
+    },
+    {
+      "name": "admin"
+    },
+    {
+      "name": "auth"
+    },
+    {
+      "name": "documentation"
+    }
+  ]
+}
