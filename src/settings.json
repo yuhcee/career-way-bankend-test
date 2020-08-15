@@ -1,9 +1,0 @@
-{
-  "sendSms": true,
-  "useMock": false,
-  "expiresInToken": "30d",
-  "NODE_ENV": "test",
-  "CONSTANT": {
-    "API_KEY": "public-key"
-  }
-}
