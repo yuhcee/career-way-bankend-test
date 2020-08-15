@@ -1,20 +1,13 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# My Backend Template
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+1. Clone the repo
+2. run npm i
+3. create .env file and add the required constants as exemplified in .env.sample
+4. run `npm start` to start the app
+5. Refer the the `scripts` section in package.json to see all available command
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+# see also
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+- [frontend template](https://github.com/chingsley/frontend-template)
