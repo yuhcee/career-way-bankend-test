@@ -34,7 +34,9 @@ server.use((error, req, res, next) => {
 });
 
 server.all(['/', '/ping'], function (req, res) {
-  res.status(200).json('Welcome to the Assistant'/'s Application');
+  res
+    .status(200)
+    .json({ message: 'Welcome to the Assistant\'s Application' });
 });
 
 server.use(function (req, res) {
