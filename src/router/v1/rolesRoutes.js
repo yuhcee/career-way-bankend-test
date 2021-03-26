@@ -1,7 +1,8 @@
 import express from 'express';
+import { handleForm } from '../../middlewares/fileware';
 
 const router = express.Router();
 
-router.get('/', (req, res) => res.send('roles routes'));
+router.post('/compare', handleForm);
 
 export default router;

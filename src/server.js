@@ -4,8 +4,11 @@ const path = require('path');
 const cors = require('cors');
 const helmet = require('helmet');
 const dotenv = require('dotenv');
+const fileUpload = require('express-fileupload');
+
 
 import routes from './router';
+import response from './utils/response';
 
 dotenv.config();
 const server = express();
@@ -14,6 +17,13 @@ server.use(helmet());
 server.use(cors());
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
+
+server.use(fileUpload({
+  limits: { fileSize: 1 * 1024 * 1024 },
+  limitHandler: (req, res) => {
+    return response(res, 400, 'file should not be greater than 1MB')
+  }
+}));
 
 server.use(
   morgan('dev', {
