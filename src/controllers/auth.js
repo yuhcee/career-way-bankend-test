@@ -1,5 +1,5 @@
 import response from '../utils/response';
-import { getUserById, register, signIn } from '../services';
+import { getUserById, register, signIn } from '../services/user';
 import * as jwt from '../utils/jwt';
 
 let blacklistedTokens = [];

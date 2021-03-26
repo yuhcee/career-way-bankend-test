@@ -1,3 +1,5 @@
+import { compareFiles } from './compare';
+
 /**
  *
  * @param {String} firstAssignment - first assignment contents

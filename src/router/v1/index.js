@@ -1,11 +1,11 @@
 import express from 'express';
 
-import rolesRoutes from './rolesRoutes';
+import assignmentRoutes from './assignmentRoutes';
 import usersRoutes from './userRoutes';
 
 const router = express.Router();
 
-router.use('/roles', rolesRoutes);
+router.use('/assignment', assignmentRoutes);
 router.use('/user', usersRoutes);
 
 export default router;
