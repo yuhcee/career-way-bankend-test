@@ -7,7 +7,8 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node ./src/index.js",
+    "start": "node dist/index.js",
+    "build:babel": "babel src -d dist --copy-files",
     "db:migrate": "sequelize db:migrate --env development",
     "db:unmigrate": " sequelize db:migrate:undo:all --env development",
     "db:reset": "npm run db:migrate:undo:dev && npm run db:migrate:dev",
