@@ -6,24 +6,48 @@ const helmet = require('helmet');
 const dotenv = require('dotenv');
 const fileUpload = require('express-fileupload');
 
-
 import routes from './router';
 import response from './utils/response';
 
 dotenv.config();
 const server = express();
+if (process.env.NODE_ENV === 'production') {
+  const { Client } = require('pg');
+
+  const client = new Client({
+    connectionString:
+      process.env.DATABASE_URL ||
+      'postgres://ttpaiffxpgenoq:d15880ac78288b2b3da142c89eea68b7d423a3c52d8599d3d1b9c303cf2913a1@ec2-54-205-183-19.compute-1.amazonaws.com:5432/d533nduujsvjlt',
+    ssl: process.env.DATABASE_URL ? true : false,
+  });
+
+  client.connect();
+
+  client.query(
+    'SELECT table_schema,table_name FROM information_schema.tables;',
+    (err, res) => {
+      if (err) throw err;
+      for (let row of res.rows) {
+        console.log(JSON.stringify(row));
+      }
+      client.end();
+    }
+  );
+}
 
 server.use(helmet());
 server.use(cors());
 server.use(express.json());
 server.use(express.urlencoded({ extended: false }));
 
-server.use(fileUpload({
-  limits: { fileSize: 1 * 1024 * 1024 },
-  limitHandler: (req, res) => {
-    return response(res, 400, 'file should not be greater than 1MB')
-  }
-}));
+server.use(
+  fileUpload({
+    limits: { fileSize: 1 * 1024 * 1024 },
+    limitHandler: (req, res) => {
+      return response(res, 400, 'file should not be greater than 1MB');
+    },
+  })
+);
 
 server.use(
   morgan('dev', {
@@ -44,9 +68,7 @@ server.use((error, req, res, next) => {
 });
 
 server.all(['/', '/ping'], function (req, res) {
-  res
-    .status(200)
-    .json({ message: 'Welcome to the Assistant\'s Application' });
+  res.status(200).json({ message: "Welcome to the Assistant's Application" });
 });
 
 server.use(function (req, res) {
