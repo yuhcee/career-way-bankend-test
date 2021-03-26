@@ -46,7 +46,8 @@
     "randomatic": "^3.1.1",
     "sequelize": "^5.22.4",
     "validator": "^13.5.2",
-    "xml-js": "^1.6.11"
+    "xml-js": "^1.6.11",
+    "sequelize-cli": "^5.5.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.10",
@@ -70,7 +71,6 @@
     "lint-staged": "^10.5.4",
     "nodemon": "^2.0.7",
     "rm": "^0.1.8",
-    "sequelize-cli": "^5.5.1",
     "sqlite3": "^4.2.0",
     "supertest": "^4.0.2",
     "webpack": "^5.27.2",
