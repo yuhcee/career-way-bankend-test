@@ -16,8 +16,7 @@ if (process.env.NODE_ENV === 'production') {
 
   const client = new Client({
     connectionString:
-      process.env.DATABASE_URL ||
-      'postgres://ttpaiffxpgenoq:d15880ac78288b2b3da142c89eea68b7d423a3c52d8599d3d1b9c303cf2913a1@ec2-54-205-183-19.compute-1.amazonaws.com:5432/d533nduujsvjlt',
+      process.env.DATABASE_URL,
     ssl: process.env.DATABASE_URL ? true : false,
   });
 
