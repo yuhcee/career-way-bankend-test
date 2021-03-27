@@ -7,15 +7,24 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/index.js",
-    "build:babel": "babel src -d dist --copy-files",
-    "db:migrate": "sequelize db:migrate --env development",
-    "db:unmigrate": " sequelize db:migrate:undo:all --env development",
+    "clean": "npm rm -rf build && npm run build-babel",
+    "start": "npm run build && node build/index.js",
+    "build-babel": "babel -d ./build ./src -s",
+    "build": "npm run clean && npm build-babel",
+    "start-dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./src/index.js",
+    "test": "cross-env NODE_ENV=test && npm run migration && npm run seeder && nyc --require --reporter=html --reporter=text mocha -r @babel/register ./src/tests/index.js --timeout 50000 --recursive --exit || true ",
+    "coverage": "nyc npm run test && nyc report --reporter=text-lcov --reporter=lcov | node ./node_modules/coveralls/bin/coveralls.js --verbose",
+    "lint": "eslint src/  --fix",
+    "migration": "npm run migrate:undo && npm run migrate",
+    "migrate": "node_modules/.bin/sequelize db:migrate",
+    "migrate:undo": "node_modules/.bin/sequelize db:migrate:undo:all",
+    "seeder": "npm run seed:undo && npm run seed",
+    "seed": "node_modules/.bin/sequelize db:seed:all",
+    "seed:undo": "node_modules/.bin/sequelize db:seed:undo:all",
     "db:reset": "npm run db:migrate:undo:dev && npm run db:migrate:dev",
     "db:migrate:test": "sequelize db:migrate --env test",
     "db:migrate:undo:test": " sequelize db:migrate:undo:all --env test",
-    "db:reset:test": "npm run db:migrate:undo:test && npm run db:migrate:test",
-    "seed:dev": "npm run db:reset:dev && sequelize db:seed:all"
+    "db:reset:test": "npm run db:migrate:undo:test && npm run db:migrate:test"
   },
   "jest": {
     "collectCoverage": false
