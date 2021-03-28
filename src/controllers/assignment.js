@@ -42,7 +42,7 @@ export const checkSubmission = async (req, res, next) => {
       secondStudentFile
     );
 
-    // Save details to database
+    // Save details to database(db)
     const isStored = await storeAssignmentDetails({
       firstStudentFile,
       secondStudentFile,
