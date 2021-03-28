@@ -21,7 +21,6 @@
           "@root": "./src",
           "@shared": "./src/shared",
           "@models": "./src/database/models",
-          "@app": "./src/app",
           "@database": "./src/database",
           "@dbconfig": "./src/database/config/env"
         }
