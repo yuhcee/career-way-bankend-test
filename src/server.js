@@ -11,28 +11,7 @@ import response from './utils/response';
 
 dotenv.config();
 const server = express();
-if (process.env.NODE_ENV === 'production') {
-  const { Client } = require('pg');
 
-  const client = new Client({
-    connectionString:
-      process.env.DATABASE_URL,
-    ssl: process.env.DATABASE_URL ? true : false,
-  });
-
-  client.connect();
-
-  client.query(
-    'SELECT table_schema,table_name FROM information_schema.tables;',
-    (err, res) => {
-      if (err) throw err;
-      for (let row of res.rows) {
-        console.log(JSON.stringify(row));
-      }
-      client.end();
-    }
-  );
-}
 
 server.use(helmet());
 server.use(cors());
@@ -74,4 +53,4 @@ server.use(function (req, res) {
   res.status(404).json({ error: 'path not found' });
 });
 
-export default { server };
+export default server;
