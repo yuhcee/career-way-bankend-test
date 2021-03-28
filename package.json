@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "npm rm -rf build && npm run build-babel",
-    "start": "npm run build && node build/index.js",
+    "start": "npm run build && node ./build/index.js",
     "build-babel": "babel src -d build --copy-files",
     "build": "npm run clean && npm run build-babel",
     "start-dev": "cross-env NODE_ENV=development nodemon --exec babel-node ./src/index.js",
